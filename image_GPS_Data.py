@@ -135,119 +135,119 @@ for iii in range(0, len(TT)):
 
 
 
-#
-#                 iiii = 0
-#                 iiiii = 0
-#                 TTTTT = []
-#                 TO = []
-#                 TP = []
-#
-#
-#                 for iiii in range(0, len(points)):  # 0.1m 높이에 대한 벽면 가로 좌표부터 20m 높이 벽면 가로좌표 까지.
-#                     x, y, z = points[iiii][0], points[iiii][1], points[iiii][2]
-#                     # print(x, y, z)
-#                     if height_image - (image_lat / 2) <= z <= height_image + (image_lat / 2): # 높이 범위가 이미지 해상도 범위 안에 있을 때.
-#                         TTT.append(z) # 해당 points 수집.
-#                         Sr2 = haversine((x,y),(out_range[iii][0], out_range[iii][1]), 'm')
-#                         if (image_lo / 2) <= Sr2 <= (image_lo / 2) + 0.1:
-#                             TTTT.append(iiii)
-#
-#
-#
-#                         if (image_lo / 2) >= Sr2:
-#                             TO.append(points[iiii])
-#                         #     TTTTT.append(points[iiii]) # 추후 중복 제거를 해야할 필요가 있을 때 개시
-#                         #     print(TTTTT)
-#                         #     if points[iiii] in points_save:
-#                         #         points_save = [o for o in points_save if o not in TTTTT]
-#                         #         TTTTT.clear()
-#                             # print(points_save)
-#
-#
-#                     iiii = iiii + 1
-#
-#                 OT = []
-#                 OB = []
-#
-#                 # print(len(TTT))
-#                 print("벽면에서 이미지가 포함되는 영역", points[min(TTTT)], points[max(TTTT)])
-#                 result = [[t for t in TO if t[2] == z] for z in set(t[2] for t in TO)]
-#                 # print(result[0][0][1])
-#                 if len(TX[iii]) > 2:
-#                     p = 0
-#                     for p in range(0, len(result)):
-#                         k = 0
-#                         for k in range(0, len(result[p])):
-#                             x, y, z = result[p][k][0], result[p][k][1], result[p][k][2]
-#                             # print(x, y, z)
-#                             if height_image - (image_lat / 2) <= z <= height_image + (image_lat / 2):  # 높이 범위가 이미지 해상도 범위 안에 있을 때.
-#                                 Sr3 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
-#                                 if k >= (len(result[p]) / 2):
-#                                     print("뒷열", k)
-#                                     OT.append(result[p][k])
-#                                 else:
-#                                     print("앞열", k)
-#                                     OB.append(result[p][k])
-#                                 if (image_lo / 2) >= Sr3:
-#                                     # print(Sr3)
-#                                     TX_IF.append(iiiii)
-#                                     # print(Sr3)
-#                             # for a in range(0, len(TX_IF)):
-#                             #     x, y, z = points[TX_IF[a]][0], points[TX_IF[a]][1], points[TX_IF[a]][2]
-#                             #     Sr4 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
-#                             #     for b in range(0, len(TX[iii])):
-#                             #         if b == 3:
-#                             #             if ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b - 2])) <= z <= ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b])))):
-#                             #                 # print((image_lo / 2) - (rs_long * int(TX[iii][b-3])), ((image_lo / 2) - (rs_long * int(TX[iii][b-1]))))
-#                             #                 # print(Sr4)
-#                             #                 if abs((image_lo / 2) - (rs_long * int(TX[iii][b-3]))) >= Sr4 >= abs((image_lo / 2) - (rs_long * int(TX[iii][b-1]))):
-#                             #
-#                             #
-#                             #                     print(Sr4)
-#                             #                     # pass
-#
-#                                 iiiii = iiiii + 1
-#                             k = k + 1
-#                         p = p + 1
-#                         TTT.clear()
-#                     # print(len(points_save))
-#
-#                         # if len(TX[iii]) > 2:
-#                         #     for iiiii in range(0, len(points)):  # 0.1m 높이에 대한 벽면 가로 좌표부터 20m 높이 벽면 가로좌표 까지.
-#                         #         x, y, z = points[iiiii][0], points[iiiii][1], points[iiiii][2]
-#                         #
-#                         #         if height_image - (image_lat / 2) <= z <= height_image + (image_lat / 2):  # 높이 범위가 이미지 해상도 범위 안에 있을 때.
-#                         #             Sr3 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
-#                         #             # print(Sr3)
-#                         #             if (image_lo / 2) >= Sr3:
-#                         #                 # print(Sr3)
-#                         #                 TX_IF.append(iiiii)
-#                         #     for a in range(0, len(TX_IF)):
-#                         #         x, y, z = points[TX_IF[a]][0], points[TX_IF[a]][1], points[TX_IF[a]][2]
-#                         #         Sr4 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
-#                         #         for b in range(0, len(TX[iii])):
-#                         #             if b == 3:
-#                         #                 if ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b - 2])) <= z <= ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b])))):
-#                         #                     # print((image_lo / 2) - (rs_long * int(TX[iii][b-3])), ((image_lo / 2) - (rs_long * int(TX[iii][b-1]))))
-#                         #                     # print(Sr4)
-#                         #                     if abs((image_lo / 2) - (rs_long * int(TX[iii][b-3]))) >= Sr4 >= abs((image_lo / 2) - (rs_long * int(TX[iii][b-1]))):
-#                         #
-#                         #
-#                         #                         # print(Sr4)
-#                         #                         pass
-#                         #
-#                         #         iiiii = iiiii + 1
-#                         #
-#                         # TTT.clear()
-#                         # print(TP)
-#                         # print(len(TTTT))
-#                         # # print(len(points_save))
-#     iii = iii + 1
-#
-# # (image_lo / 2) - (rs_long * int(TX[iii][b-3])) <= Sr3 <= (image_lo / 2) - (rs_long * int(TX[iii][b-1]))
-# # print(len(result[1]))
-# # print(TO[100])
-# print(max(OT), min(OT))
-# # print(OT)
-# print("===-=-=-=============")
-# print(max(OB), min(OB))
+
+                iiii = 0
+                iiiii = 0
+                TTTTT = []
+                TO = []
+                TP = []
+
+
+                for iiii in range(0, len(points)):  # 0.1m 높이에 대한 벽면 가로 좌표부터 20m 높이 벽면 가로좌표 까지.
+                    x, y, z = points[iiii][0], points[iiii][1], points[iiii][2]
+                    # print(x, y, z)
+                    if height_image - (image_lat / 2) <= z <= height_image + (image_lat / 2): # 높이 범위가 이미지 해상도 범위 안에 있을 때.
+                        TTT.append(z) # 해당 points 수집.
+                        Sr2 = haversine((x,y),(out_range[iii][0], out_range[iii][1]), 'm')
+                        if (image_lo / 2) <= Sr2 <= (image_lo / 2) + 0.1:
+                            TTTT.append(iiii)
+
+
+
+                        if (image_lo / 2) >= Sr2:
+                            TO.append(points[iiii])
+                        #     TTTTT.append(points[iiii]) # 추후 중복 제거를 해야할 필요가 있을 때 개시
+                        #     print(TTTTT)
+                        #     if points[iiii] in points_save:
+                        #         points_save = [o for o in points_save if o not in TTTTT]
+                        #         TTTTT.clear()
+                            # print(points_save)
+
+
+                    iiii = iiii + 1
+
+                OT = []
+                OB = []
+
+                # print(len(TTT))
+                print("벽면에서 이미지가 포함되는 영역", points[min(TTTT)], points[max(TTTT)])
+                result = [[t for t in TO if t[2] == z] for z in set(t[2] for t in TO)]
+                # print(result[0][0][1])
+                if len(TX[iii]) > 2:
+                    p = 0
+                    for p in range(0, len(result)):
+                        k = 0
+                        for k in range(0, len(result[p])):
+                            x, y, z = result[p][k][0], result[p][k][1], result[p][k][2]
+                            # print(x, y, z)
+                            if height_image - (image_lat / 2) <= z <= height_image + (image_lat / 2):  # 높이 범위가 이미지 해상도 범위 안에 있을 때.
+                                Sr3 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
+                                if k >= (len(result[p]) / 2):
+                                    print("뒷열", k)
+                                    OT.append(result[p][k])
+                                else:
+                                    print("앞열", k)
+                                    OB.append(result[p][k])
+                                if (image_lo / 2) >= Sr3:
+                                    # print(Sr3)
+                                    TX_IF.append(iiiii)
+                                    # print(Sr3)
+                            # for a in range(0, len(TX_IF)):
+                            #     x, y, z = points[TX_IF[a]][0], points[TX_IF[a]][1], points[TX_IF[a]][2]
+                            #     Sr4 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
+                            #     for b in range(0, len(TX[iii])):
+                            #         if b == 3:
+                            #             if ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b - 2])) <= z <= ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b])))):
+                            #                 # print((image_lo / 2) - (rs_long * int(TX[iii][b-3])), ((image_lo / 2) - (rs_long * int(TX[iii][b-1]))))
+                            #                 # print(Sr4)
+                            #                 if abs((image_lo / 2) - (rs_long * int(TX[iii][b-3]))) >= Sr4 >= abs((image_lo / 2) - (rs_long * int(TX[iii][b-1]))):
+                            #
+                            #
+                            #                     print(Sr4)
+                            #                     # pass
+
+                                iiiii = iiiii + 1
+                            k = k + 1
+                        p = p + 1
+                        TTT.clear()
+                    # print(len(points_save))
+
+                        # if len(TX[iii]) > 2:
+                        #     for iiiii in range(0, len(points)):  # 0.1m 높이에 대한 벽면 가로 좌표부터 20m 높이 벽면 가로좌표 까지.
+                        #         x, y, z = points[iiiii][0], points[iiiii][1], points[iiiii][2]
+                        #
+                        #         if height_image - (image_lat / 2) <= z <= height_image + (image_lat / 2):  # 높이 범위가 이미지 해상도 범위 안에 있을 때.
+                        #             Sr3 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
+                        #             # print(Sr3)
+                        #             if (image_lo / 2) >= Sr3:
+                        #                 # print(Sr3)
+                        #                 TX_IF.append(iiiii)
+                        #     for a in range(0, len(TX_IF)):
+                        #         x, y, z = points[TX_IF[a]][0], points[TX_IF[a]][1], points[TX_IF[a]][2]
+                        #         Sr4 = haversine((x, y), (out_range[iii][0], out_range[iii][1]), 'm')
+                        #         for b in range(0, len(TX[iii])):
+                        #             if b == 3:
+                        #                 if ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b - 2])) <= z <= ((height_image - (image_lat / 2)) + (rs_lat * int(TX[iii][b])))):
+                        #                     # print((image_lo / 2) - (rs_long * int(TX[iii][b-3])), ((image_lo / 2) - (rs_long * int(TX[iii][b-1]))))
+                        #                     # print(Sr4)
+                        #                     if abs((image_lo / 2) - (rs_long * int(TX[iii][b-3]))) >= Sr4 >= abs((image_lo / 2) - (rs_long * int(TX[iii][b-1]))):
+                        #
+                        #
+                        #                         # print(Sr4)
+                        #                         pass
+                        #
+                        #         iiiii = iiiii + 1
+                        #
+                        # TTT.clear()
+                        # print(TP)
+                        # print(len(TTTT))
+                        # # print(len(points_save))
+    iii = iii + 1
+
+# (image_lo / 2) - (rs_long * int(TX[iii][b-3])) <= Sr3 <= (image_lo / 2) - (rs_long * int(TX[iii][b-1]))
+# print(len(result[1]))
+# print(TO[100])
+print(max(OT), min(OT))
+# print(OT)
+print("===-=-=-=============")
+print(max(OB), min(OB))
