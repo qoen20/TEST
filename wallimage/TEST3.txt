@@ -1,0 +1,3 @@
+[tensor(822.), tensor(2004.), tensor(1560.), tensor(2428.)]
+[tensor(828.), tensor(2925.), tensor(1563.), tensor(3033.)]
+[tensor(824.), tensor(883.), tensor(1562.), tensor(1385.)]
